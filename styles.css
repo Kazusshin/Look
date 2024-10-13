@@ -1,0 +1,28 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.container {
+    text-align: center;
+}
+
+.wheel {
+    width: 200px;
+    height: 200px;
+    border: 16px solid #4CAF50;
+    border-radius: 50%;
+    position: relative;
+    margin: 20px auto;
+    transition: transform 4s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+#spinButton, #addValueButton {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
