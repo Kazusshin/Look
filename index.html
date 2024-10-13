@@ -3,43 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Колесо Удачи</title>
     <link rel="stylesheet" href="styles.css">
+    <title>Колесо Удачи</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Колесо Удачи</h1>
-        <div class="wheel" id="wheel">
-            <div class="slice" style="background-color: red;">1</div>
-            <div class="slice" style="background-color: blue;">2</div>
-            <div class="slice" style="background-color: green;">3</div>
-            <div class="slice" style="background-color: yellow;">4</div>
-            <div class="slice" style="background-color: orange;">5</div>
-            <div class="slice" style="background-color: purple;">6</div>
-            <div class="slice" style="background-color: pink;">7</div>
-            <div class="slice" style="background-color: teal;">8</div>
-            <div class="slice" style="background-color: lightblue;">9</div>
-            <div class="slice" style="background-color: lightgreen;">10</div>
-            <div class="slice" style="background-color: coral;">11</div>
-            <div class="slice" style="background-color: khaki;">12</div>
-            <div class="slice" style="background-color: lavender;">13</div>
+    <div class="wheel-container">
+        <div class="wheel">
+            <div class="slice" style="--i:0;">Коньяк</div>
+            <div class="slice" style="--i:1;">Виски</div>
+            <div class="slice" style="--i:2;">Бренди</div>
+            <div class="slice" style="--i:3;">Ром</div>
+            <div class="slice" style="--i:4;">Водка</div>
+            <div class="slice" style="--i:5;">Пиво</div>
+            <div class="slice" style="--i:6;">Мартини</div>
+            <div class="slice" style="--i:7;">Ликёр</div>
+            <div class="slice" style="--i:8;">Вино</div>
+            <div class="slice" style="--i:9;">Джин</div>
+            <div class="slice" style="--i:10;">Абсент</div>
+            <div class="slice" style="--i:11;">Настойка</div>
         </div>
-        <button onclick="spin()">Покрутить!</button>
-        <div id="result"></div>
+        <div class="arrow"></div>
     </div>
-    <script>
-        function spin() {
-            const wheel = document.getElementById('wheel');
-            const randomDegree = Math.floor(Math.random() * 360 + 360 * 5);
-            wheel.style.transition = 'transform 4s cubic-bezier(0.33, 1, 0.68, 1)';
-            wheel.style.transform = `rotate(${randomDegree}deg)`;
 
-            const resultIndex = Math.round((randomDegree % 360) / (360 / 13));
-            const results = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13'];
-            setTimeout(() => {
-                document.getElementById('result').innerHTML = `Вы выпали: ${results[resultIndex]}`;
-            }, 4000);
+    <script>
+        // Простая функция для случайного вращения колеса
+        function spin() {
+            const wheel = document.querySelector('.wheel');
+            const randomDegree = Math.floor(Math.random() * 360) + 3600; // минимум 10 полных оборотов
+            wheel.style.transition = 'transform 8s cubic-bezier(0.33, 1, 0.68, 1)';
+            wheel.style.transform = `rotate(${randomDegree}deg)`;
         }
+
+        setTimeout(spin, 1000);  // Запускаем вращение через 1 секунду
     </script>
 </body>
 </html>

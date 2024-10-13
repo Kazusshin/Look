@@ -1,49 +1,49 @@
 body {
-    background-image: https://asatyr.ru/moda/leopardovyj-print
-    font-family: Arial, sans-serif;
-    text-align: center;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Leopard_print.jpg/640px-Leopard_print.jpg') no-repeat center center fixed;
+    background-size: cover;
 }
 
-.container {
-    margin: 50px auto;
-    width: 80%;
+.wheel-container {
+    position: relative;
 }
 
 .wheel {
-    position: relative;
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    border: 5px solid #000;
-    overflow: hidden;
+    border: 16px solid #fff;
+    position: relative;
+    transform-style: preserve-3d;
 }
 
 .slice {
     position: absolute;
     width: 50%;
     height: 50%;
-    top: 50%;
-    left: 50%;
-    transform-origin: 0% 0%;
-    clip-path: polygon(0 100%, 100% 100%, 100% 0);
+    background: hsl(calc(var(--i) * 30), 70%, 50%); /* разные цвета на основании индекса */
+    clip-path: polygon(100% 100%, 0 0, 0 100%);
+    transform: rotate(calc(var(--i) * 30deg)) translateY(-100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    font-size: 15px;
 }
 
-.slice:nth-child(1) { transform: rotate(0deg); }
-.slice:nth-child(2) { transform: rotate(27.69deg); }
-.slice:nth-child(3) { transform: rotate(55.38deg); }
-.slice:nth-child(4) { transform: rotate(83.08deg); }
-.slice:nth-child(5) { transform: rotate(110.77deg); }
-.slice:nth-child(6) { transform: rotate(138.46deg); }
-.slice:nth-child(7) { transform: rotate(166.15deg); }
-.slice:nth-child(8) { transform: rotate(193.85deg); }
-.slice:nth-child(9) { transform: rotate(221.54deg); }
-.slice:nth-child(10) { transform: rotate(249.23deg); }
-.slice:nth-child(11) { transform: rotate(276.92deg); }
-.slice:nth-child(12) { transform: rotate(304.62deg); }
-.slice:nth-child(13) { transform: rotate(332.31deg); }
-
-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 18px;
+.arrow {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    margin-left: -10px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid red;
 }
