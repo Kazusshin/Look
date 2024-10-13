@@ -3,28 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>Колесо Удачи</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <div class="wheel" id="wheel">
-            <div class="sector" style="--i: 0;">Коньяк</div>
-            <div class="sector" style="--i: 1;">Виски</div>
-            <div class="sector" style="--i: 2;">Бренди</div>
-            <div class="sector" style="--i: 3;">Ром</div>
-            <div class="sector" style="--i: 4;">Водка</div>
-            <div class="sector" style="--i: 5;">Пиво</div>
-            <div class="sector" style="--i: 6;">Мартини</div>
-            <div class="sector" style="--i: 7;">Ликёр</div>
-            <div class="sector" style="--i: 8;">Вино</div>
-            <div class="sector" style="--i: 9;">Джин</div>
-            <div class="sector" style="--i: 10;">Абсент</div>
-            <div class="sector" style="--i: 11;">Настойка</div>
+            <div class="marker"></div>
+            <div class="slice" style="--i:0;">Коньяк</div>
+            <div class="slice" style="--i:1;">Виски</div>
+            <div class="slice" style="--i:2;">Бренди</div>
+            <div class="slice" style="--i:3;">Ром</div>
+            <div class="slice" style="--i:4;">Водка</div>
+            <div class="slice" style="--i:5;">Пиво</div>
+            <div class="slice" style="--i:6;">Мартини</div>
+            <div class="slice" style="--i:7;">Ликёр</div>
+            <div class="slice" style="--i:8;">Вино</div>
+            <div class="slice" style="--i:9;">Джин</div>
+            <div class="slice" style="--i:10;">Абсент</div>
+            <div class="slice" style="--i:11;">Настойка</div>
         </div>
-        <div class="arrow"></div>
-        <button id="spinButton">Крутить</button>
+        <button id="spinButton">Крутить колесо</button>
     </div>
-    <script src="script.js"></script>
+
+    <script>
+        const spinButton = document.getElementById("spinButton");
+        const wheel = document.getElementById("wheel");
+
+        spinButton.addEventListener("click", () => {
+            const randomDegree = Math.floor(Math.random() * 360 + 720);
+            wheel.style.transform = `rotate(${randomDegree}deg)`;
+        });
+    </script>
 </body>
 </html>

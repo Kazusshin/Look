@@ -1,59 +1,59 @@
 body {
-    font-family: Arial, sans-serif;
-    background: url('https://i.imgur.com/RDgY2jw.jpg') no-repeat center center fixed; /* Леопардовый фон */
-    background-size: cover;
+    background-color: #f5f5dc; /* Цвет фона */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('https://www.transparenttextures.com/patterns/leopard.png'); /* Л Leopard */
 }
 
 .container {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
 }
 
 .wheel {
     width: 300px;
     height: 300px;
     border-radius: 50%;
+    border: 16px solid black;
     position: relative;
     overflow: hidden;
-    border: 10px solid #333; /* Контур колеса */
     transition: transform 4s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
-.sector {
+.slice {
     position: absolute;
     width: 50%;
     height: 50%;
-    background-color: hsl(calc(var(--i) * 30), 100%, 50%); /* Циклические цвета для секторов */
-    clip-path: polygon(100% 100%, 0% 100%, 100% 0%);
+    background: hsl(calc(var(--i) * 30), 100%, 50%); /* Использование HSL для цветовой схемы */
+    clip-path: polygon(100% 100%, 100% 0, 0 0);
+    transform-origin: 100% 100%;
     transform: rotate(calc(var(--i) * 30deg));
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #fff;
     font-weight: bold;
-    color: white;
-    border-right: 1px solid #fff;
 }
 
-.arrow {
+.marker {
     position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 0;
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-bottom: 10px solid #f00;
-    margin-bottom: 10px;
+    border-bottom: 10px solid #ff0000; /* Цвет стрелки */
 }
 
 button {
     margin-top: 20px;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 20px;
     cursor: pointer;
 }
