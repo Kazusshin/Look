@@ -1,51 +1,49 @@
 body {
-    background-image: url('https://www.transparenttextures.com/patterns/leopard.png');
+    background-image: https://asatyr.ru/moda/leopardovyj-print
     font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-}
-
-.container {
     text-align: center;
 }
 
+.container {
+    margin: 50px auto;
+    width: 80%;
+}
+
 .wheel {
+    position: relative;
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    border: 10px solid #000;
-    position: relative;
+    border: 5px solid #000;
     overflow: hidden;
 }
 
-.segment {
+.slice {
     position: absolute;
     width: 50%;
     height: 50%;
-    background: #fff;
-    transform-origin: 100% 100%;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0% 0%;
+    clip-path: polygon(0 100%, 100% 100%, 100% 0);
 }
 
-.segment:nth-child(1) { transform: rotate(0deg); }
-.segment:nth-child(2) { transform: rotate(60deg); }
-.segment:nth-child(3) { transform: rotate(120deg); }
-.segment:nth-child(4) { transform: rotate(180deg); }
-.segment:nth-child(5) { transform: rotate(240deg); }
-.segment:nth-child(6) { transform: rotate(300deg); }
+.slice:nth-child(1) { transform: rotate(0deg); }
+.slice:nth-child(2) { transform: rotate(27.69deg); }
+.slice:nth-child(3) { transform: rotate(55.38deg); }
+.slice:nth-child(4) { transform: rotate(83.08deg); }
+.slice:nth-child(5) { transform: rotate(110.77deg); }
+.slice:nth-child(6) { transform: rotate(138.46deg); }
+.slice:nth-child(7) { transform: rotate(166.15deg); }
+.slice:nth-child(8) { transform: rotate(193.85deg); }
+.slice:nth-child(9) { transform: rotate(221.54deg); }
+.slice:nth-child(10) { transform: rotate(249.23deg); }
+.slice:nth-child(11) { transform: rotate(276.92deg); }
+.slice:nth-child(12) { transform: rotate(304.62deg); }
+.slice:nth-child(13) { transform: rotate(332.31deg); }
 
 button {
     margin-top: 20px;
     padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-#result {
-    margin-top: 20px;
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 18px;
 }

@@ -9,12 +9,37 @@
 <body>
     <div class="container">
         <h1>Колесо Удачи</h1>
-        <div id="wheel" class="wheel"></div>
-        <button id="spinButton">Крутить!</button>
-        <input type="text" id="inputValue" placeholder="Введите значение" />
-        <button id="addValueButton">Добавить значение</button>
+        <div class="wheel" id="wheel">
+            <div class="slice" style="background-color: red;">1</div>
+            <div class="slice" style="background-color: blue;">2</div>
+            <div class="slice" style="background-color: green;">3</div>
+            <div class="slice" style="background-color: yellow;">4</div>
+            <div class="slice" style="background-color: orange;">5</div>
+            <div class="slice" style="background-color: purple;">6</div>
+            <div class="slice" style="background-color: pink;">7</div>
+            <div class="slice" style="background-color: teal;">8</div>
+            <div class="slice" style="background-color: lightblue;">9</div>
+            <div class="slice" style="background-color: lightgreen;">10</div>
+            <div class="slice" style="background-color: coral;">11</div>
+            <div class="slice" style="background-color: khaki;">12</div>
+            <div class="slice" style="background-color: lavender;">13</div>
+        </div>
+        <button onclick="spin()">Покрутить!</button>
         <div id="result"></div>
     </div>
-    <script src="script.js"></script>
+    <script>
+        function spin() {
+            const wheel = document.getElementById('wheel');
+            const randomDegree = Math.floor(Math.random() * 360 + 360 * 5);
+            wheel.style.transition = 'transform 4s cubic-bezier(0.33, 1, 0.68, 1)';
+            wheel.style.transform = `rotate(${randomDegree}deg)`;
+
+            const resultIndex = Math.round((randomDegree % 360) / (360 / 13));
+            const results = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13'];
+            setTimeout(() => {
+                document.getElementById('result').innerHTML = `Вы выпали: ${results[resultIndex]}`;
+            }, 4000);
+        }
+    </script>
 </body>
 </html>
