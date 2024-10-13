@@ -1,59 +1,104 @@
 body {
-    background-color: #f5f5dc; /* Цвет фона */
+    background: url(body {
+    background: url('https://www.vecteezy.com/vector-art/1834558-leopard-print-design-cheetah-skin-animal-print'); /* Замените на URL Вашего леопардового фона */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-image: url('https://www.transparenttextures.com/patterns/leopard.png'); /* Л Leopard */
 }
 
 .container {
     position: relative;
-    text-align: center;
 }
 
 .wheel {
-    width: 300px;
-    height: 300px;
+    width: 400px; /* Увеличиваем размер колеса */
+    height: 400px; /* Увеличиваем размер колеса */
     border-radius: 50%;
-    border: 16px solid black;
     position: relative;
     overflow: hidden;
+    border: 10px solid #fff; /* Белая рамка для колеса */
+    transform: rotate(0deg);
     transition: transform 4s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
-.slice {
+.segment {
     position: absolute;
     width: 50%;
     height: 50%;
-    background: hsl(calc(var(--i) * 30), 100%, 50%); /* Использование HSL для цветовой схемы */
-    clip-path: polygon(100% 100%, 100% 0, 0 0);
+    background: hsl(calc(var(--i) * 30), 70%, 50%); /* Разные цвета для сегментов */
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
     transform-origin: 100% 100%;
     transform: rotate(calc(var(--i) * 30deg));
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fff;
-    font-weight: bold;
+    font-size: 16px; /* Размер шрифта */
+    color: white; /* Цвет текста */
+    text-align: center;
+    padding: 10px; /* Отступы для текста */
 }
 
-.marker {
+.pointer {
     position: absolute;
-    top: -25px;
+    top: -20px; /* Позиция стрелки */
     left: 50%;
     transform: translateX(-50%);
     width: 0;
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-bottom: 10px solid #ff0000; /* Цвет стрелки */
+    border-bottom: 20px solid red; /* Цвет стрелки */
+}
+); /* Замените на URL Вашего леопардового фона */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 20px;
-    cursor: pointer;
+.container {
+    position: relative;
+}
+
+.wheel {
+    width: 400px; /* Увеличиваем размер колеса */
+    height: 400px; /* Увеличиваем размер колеса */
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    border: 10px solid #fff; /* Белая рамка для колеса */
+    transform: rotate(0deg);
+    transition: transform 4s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.segment {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background: hsl(calc(var(--i) * 30), 70%, 50%); /* Разные цвета для сегментов */
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    transform-origin: 100% 100%;
+    transform: rotate(calc(var(--i) * 30deg));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px; /* Размер шрифта */
+    color: white; /* Цвет текста */
+    text-align: center;
+    padding: 10px; /* Отступы для текста */
+}
+
+.pointer {
+    position: absolute;
+    top: -20px; /* Позиция стрелки */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid red; /* Цвет стрелки */
 }
