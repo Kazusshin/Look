@@ -1,32 +1,25 @@
-let values = [];
-const wheel = document.getElementById('wheel');
-const result = document.getElementById('result');
 const spinButton = document.getElementById('spinButton');
-const inputValue = document.getElementById('inputValue');
-const addValueButton = document.getElementById('addValueButton');
-
-addValueButton.addEventListener('click', () => {
-    const value = inputValue.value.trim();
-    if (value) {
-        values.push(value);
-        inputValue.value = '';
-        alert(`Значение "${value}" добавлено!`);
-    } else {
-        alert('Введите значение!');
-    }
-});
+const wheel = document.getElementById('wheel');
+const resultDiv = document.getElementById('result');
 
 spinButton.addEventListener('click', () => {
-    if (values.length === 0) {
-        alert('Добавьте хотя бы одно значение!');
-        return;
-    }
-    
-    const randomIndex = Math.floor(Math.random() * values.length);
-    const randomDegree = 360 * 5 + randomIndex * (360 / values.length); // 5 полных оборотов + случайный индекс
+    const randomDegree = Math.floor(Math.random() * 360 + 720); // 720 - для дополнительного вращения
     wheel.style.transform = `rotate(${randomDegree}deg)`;
-
+    
+    const result = getResult(randomDegree % 360);
     setTimeout(() => {
-        result.textContent = `Вы выиграли: ${values[randomIndex]}`;
-    }, 4000); // Задержка, чтобы показать результат после анимации
+        resultDiv.textContent = `Вы выиграли: ${result}`;
+    }, 4000); // Задержка, чтобы показать результат после вращения
 });
+
+// Функция для определения результата в зависимости от угла
+function getResult(degree) {
+    // Здесь можно добавить логику определения сектора
+    if (degree < 90) return 'Приз 1';
+    else if (degree < 180) return 'Приз 2';
+    else if (degree < 270) return 'Приз 3';
+    else return 'Приз 4';
+document.getElementById('spinButton').addEventListener('click', function() {
+    const wheel = document.getElementById('wheel');
+    const randomDegree = Math.floor(Math.random() * 360 + 3600); // 10 полных оборотов плюс случайный угол
+    wheel.style.transform = `rotate(${randomDegree}deg)`;

@@ -1,49 +1,59 @@
 body {
-    margin: 0;
-    height: 100vh;
+    font-family: Arial, sans-serif;
+    background: url('https://i.imgur.com/RDgY2jw.jpg') no-repeat center center fixed; /* Леопардовый фон */
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Leopard_print.jpg/640px-Leopard_print.jpg') no-repeat center center fixed;
-    background-size: cover;
+    height: 100vh;
+    margin: 0;
 }
 
-.wheel-container {
+.container {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .wheel {
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    border: 16px solid #fff;
     position: relative;
-    transform-style: preserve-3d;
+    overflow: hidden;
+    border: 10px solid #333; /* Контур колеса */
+    transition: transform 4s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
-.slice {
+.sector {
     position: absolute;
     width: 50%;
     height: 50%;
-    background: hsl(calc(var(--i) * 30), 70%, 50%); /* разные цвета на основании индекса */
-    clip-path: polygon(100% 100%, 0 0, 0 100%);
-    transform: rotate(calc(var(--i) * 30deg)) translateY(-100%);
+    background-color: hsl(calc(var(--i) * 30), 100%, 50%); /* Циклические цвета для секторов */
+    clip-path: polygon(100% 100%, 0% 100%, 100% 0%);
+    transform: rotate(calc(var(--i) * 30deg));
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
     color: white;
-    font-size: 15px;
+    border-right: 1px solid #fff;
 }
 
 .arrow {
     position: absolute;
-    top: -20px;
-    left: 50%;
-    margin-left: -10px;
     width: 0;
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-bottom: 20px solid red;
+    border-bottom: 10px solid #f00;
+    margin-bottom: 10px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
 }
