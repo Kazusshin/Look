@@ -1,51 +1,57 @@
 body {
-    margin: 0;
+    background-color: #f2f2f2;
     font-family: Arial, sans-serif;
-    background: url('https://i.imgur.com/txANgUP.jpg'); /* Леопардовый фон */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin: 0;
 }
 
 .container {
     position: relative;
-    width: 400px;  /* увеличиваем размер колеса */
-    height: 400px; /* увеличиваем размер колеса */
 }
 
 .wheel {
-    width: 100%;
-    height: 100%;
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
+    border: 5px solid #000;
     position: relative;
-    transition: transform 4s ease;
+    overflow: hidden;
+    transform: rotate(0deg);
 }
 
-.slice {
+.segment {
+    position: absolute;
     width: 50%;
     height: 50%;
-    position: absolute;
-    right: 50%;
-    bottom: 50%;
-    background: hsl(0, 100%, 50%); /* Цветовые поля по кругу */
+    background-color: hsl(calc(var(--i) * 30), 100%, 50%);
     transform-origin: 100% 100%;
+    transform: rotate(calc(var(--i) * 30deg)) translateY(-100%);
     display: flex;
-    justify-content: center; 
     align-items: center;
-    color: white; 
-    font-weight: bold; 
-    border-left: 1px solid white; /* Линия между полями для контраста */
+    justify-content: center;
+    color: white;
+    font-weight: bold;
 }
 
-.pointer {
+.arrow {
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-left: -15px; /* Откорректировать положение */
-    margin-top: -100px; /* Откорректировать положение */
-    width: 30px;
-    height: 30px;
-    background: red; /* Цвет стрелочки */
-    clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 15px solid #ff0000;
+    transform: translate(-50%, -100%);
 }
+
+.spin {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+

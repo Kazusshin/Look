@@ -3,49 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>Колесо Удачи</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-<div class="container">
-    <div class="wheel" id="wheel">
-        <div class="slice" style="transform: rotate(0deg);">Коньяк</div>
-        <div class="slice" style="transform: rotate(30deg);">Виски</div>
-        <div class="slice" style="transform: rotate(60deg);">Бренди</div>
-        <div class="slice" style="transform: rotate(90deg);">Ром</div>
-        <div class="slice" style="transform: rotate(120deg);">Водка</div>
-        <div class="slice" style="transform: rotate(150deg);">Пиво</div>
-        <div class="slice" style="transform: rotate(180deg);">Мартини</div>
-        <div class="slice" style="transform: rotate(210deg);">Ликёр</div>
-        <div class="slice" style="transform: rotate(240deg);">Вино</div>
-        <div class="slice" style="transform: rotate(270deg);">Джин</div>
-        <div class="slice" style="transform: rotate(300deg);">Абсент</div>
-        <div class="slice" style="transform: rotate(330deg);">Настойка</div>
+    <div class="container">
+        <div class="wheel" id="wheel">
+            <div class="segment" style="--i: 0;">Коньяк</div>
+            <div class="segment" style="--i: 1;">Виски</div>
+            <div class="segment" style="--i: 2;">Бренди</div>
+            <div class="segment" style="--i: 3;">Ром</div>
+            <div class="segment" style="--i: 4;">Водка</div>
+            <div class="segment" style="--i: 5;">Пиво</div>
+            <div class="segment" style="--i: 6;">Мартини</div>
+            <div class="segment" style="--i: 7;">Ликёр</div>
+            <div class="segment" style="--i: 8;">Вино</div>
+            <div class="segment" style="--i: 9;">Джин</div>
+            <div class="segment" style="--i: 10;">Абсент</div>
+            <div class="segment" style="--i: 11;">Настойка</div>
+        </div>
+        <div class="arrow"></div>
+        <button class="spin" onclick="spinWheel()">Крутить!</button>
     </div>
-    
-    <div class="pointer"></div>
-</div>
 
-<script>
-    // Добавляем функциональность вращения колеса
-    let spinning = false;
-    const wheel = document.getElementById('wheel');
-
-    document.addEventListener('click', () => {
-        if (!spinning) {
-            spinning = true;
-            let rotateDegree = Math.floor(Math.random() * 360) + 720; // случайный угол
-            wheel.style.transition = 'transform 4s cubic-bezier(0.33, 1, 0.68, 1)';
-            wheel.style.transform = `rotate(${rotateDegree}deg)`;
+    <script>
+        function spinWheel() {
+            const wheel = document.getElementById('wheel');
+            const randomDegree = Math.floor(Math.random() * 360) + 720; // минимум 2 полных оборота
+            wheel.style.transition = 'transform 4s ease-out';
+            wheel.style.transform = `rotate(${randomDegree}deg)`;
             setTimeout(() => {
-                spinning = false;
                 wheel.style.transition = 'none';
-                wheel.style.transform = `rotate(${rotateDegree % 360}deg)`; 
+                wheel.style.transform = `rotate(${randomDegree % 360}deg)`;
             }, 4000);
         }
-    });
-</script>
-
+    </script>
 </body>
 </html>
